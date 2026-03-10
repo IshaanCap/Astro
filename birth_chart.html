@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 50px auto;">
+    <h2 style="text-align: center;">Your Zodiac Sign</h2>
+    <div style="text-align: center; font-size: 4rem; margin: 20px 0;">
+        {{ sign }}
+    </div>
+    <p style="text-align: center; font-size: 1.2rem;">
+        <strong>Sign Dates:</strong> {{ dates }}
+    </p>
+    <hr>
+    <p><strong>Birth Date:</strong> {{ birth_date.strftime('%B %d, %Y') }}</p>
+    {% if birth_time %}
+    <p><strong>Birth Time:</strong> {{ birth_time }}</p>
+    {% endif %}
+    {% if birth_place %}
+    <p><strong>Birth Place:</strong> {{ birth_place }}</p>
+    {% endif %}
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{{ url_for('horoscope') }}" class="btn-large">View Daily Horoscope</a>
+    </div>
+</div>
+{% endblock %}
