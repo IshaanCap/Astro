@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 50px auto;">
+    <h2 style="text-align: center;">Daily Horoscope</h2>
+    <p style="text-align: center; color: #aaa;">{{ horoscope.date }}</p>
+    
+    <div style="text-align: center; font-size: 3rem; margin: 10px 0;">
+        {{ sign }}
+    </div>
+
+    <div class="form-group">
+        <label>Key Traits</label>
+        <p>{{ horoscope.traits|join(', ') }}</p>
+    </div>
+
+    <div class="form-group">
+        <label>Love</label>
+        <p>{{ horoscope.love }}</p>
+    </div>
+
+    <div class="form-group">
+        <label>Career</label>
+        <p>{{ horoscope.career }}</p>
+    </div>
+
+    <div class="form-group">
+        <label>Health</label>
+        <p>{{ horoscope.health }}</p>
+    </div>
+
+    <div class="form-group">
+        <label>Overall</label>
+        <p>{{ horoscope.overall }}</p>
+    </div>
+</div>
+{% endblock %}
