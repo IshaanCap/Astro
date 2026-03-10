@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrology App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="navbar-brand">✨ StarGazer</a>
+        <div class="navbar-links">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('birth_chart') }}">Birth Chart</a>
+                <a href="{{ url_for('horoscope') }}">Horoscope</a>
+                <a href="{{ url_for('compatibility') }}">Compatibility</a>
+                <a href="{{ url_for('logout') }}">Logout ({{ current_user.username }})</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer style="text-align: center; padding: 20px; margin-top: 40px; color: #888;">
+        &copy; 2023 StarGazer Astrology. All rights reserved.
+    </footer>
+</body>
+</html>
