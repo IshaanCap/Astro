@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h1>Discover Your Destiny</h1>
+    <p>Unlock the secrets of the stars with your personalized horoscope and birth chart.</p>
+    <a href="{{ url_for('register') }}" class="btn-large">Get Started</a>
+</div>
+
+<div class="container" style="margin-top: 50px;">
+    <div class="card">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li><strong>Daily Horoscopes:</strong> Get insights tailored to your sign.</li>
+            <li><strong>Birth Chart:</strong> Calculate your exact zodiac sign.</li>
+            <li><strong>Compatibility:</strong> See how well you match with others.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
