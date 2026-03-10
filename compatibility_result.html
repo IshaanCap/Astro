@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="max-width: 500px; margin: 50px auto; text-align: center;">
+    <h2>Compatibility Score</h2>
+    <p>Between <strong>{{ sign1 }}</strong> and <strong>{{ sign2 }}</strong></p>
+    
+    <div class="score-circle" style="--score: {{ score }}%">
+        <span class="score-text">{{ score }}%</span>
+    </div>
+    
+    <div class="form-group">
+        <label>Analysis</label>
+        <p>
+            {% if score >= 80 %}
+                Excellent match! Your stars are perfectly aligned.
+            {% elif score >= 60 %}
+                Good compatibility! There's potential for a strong connection.
+            {% else %}
+                Some challenges ahead, but love can overcome anything.
+            {% endif %}
+        </p>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{{ url_for('compatibility') }}" class="btn-large">Check Another</a>
+    </div>
+</div>
+{% endblock %}
