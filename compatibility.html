@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h2 style="text-align: center; color: var(--accent-color);">Compatibility Check</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="sign1">Your Sign</label>
+            <select id="sign1" name="sign1" required>
+                {% for s in signs %}
+                <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sign2">Partner's Sign</label>
+            <select id="sign2" name="sign2" required>
+                {% for s in signs %}
+                <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Check Compatibility</button>
+    </form>
+</div>
+{% endblock %}
